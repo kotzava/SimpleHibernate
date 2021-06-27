@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=CoraCardTestV1;</property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password">MyPass@word</property>
+        <!-- show sql to console-->
+        <property name="show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <mapping class="model.User"></mapping>
+        <mapping class="model.Category"></mapping>
+        <mapping class="model.Contact"></mapping>
+        <mapping class="model.Post"></mapping>
+        <mapping class="model.Role"></mapping>
+        <mapping class="model.Social"></mapping>
+        <mapping class="model.Status"></mapping>
+        <mapping class="model.Tag"></mapping>
+
+    </session-factory>
+
+</hibernate-configuration>
