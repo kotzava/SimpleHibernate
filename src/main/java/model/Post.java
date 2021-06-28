@@ -13,7 +13,7 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "postId")
-    private int postId;
+    private Long postId;
     @Column(columnDefinition = "NVARCHAR(500)")
     private String title;
     @Column(columnDefinition = "NVARCHAR(MAX)")

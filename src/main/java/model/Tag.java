@@ -11,7 +11,7 @@ import java.util.Set;
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int tagId;
+    private Long tagId;
     @Column(columnDefinition = "NVARCHAR(50)")
     private String name;
     @ManyToMany(mappedBy = "tags")

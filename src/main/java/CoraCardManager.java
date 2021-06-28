@@ -1,6 +1,8 @@
 import model.User;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
 import java.util.List;
@@ -9,15 +11,15 @@ public class CoraCardManager {
     public static void main(String[] args) {
         System.out.println("START PROGRAM");
 
-        //createUser();
+        createUser();
 
-        System.out.println("GET ALL USER: ");
-        List<User> users = getAllUser();
-        for (User u : users) {
-            System.out.println(u);
-        }
-
-        System.out.println(getUserById(3));
+//        System.out.println("GET ALL USER: ");
+//        List<User> users = getAllUser();
+//        for (User u : users) {
+//            System.out.println(u);
+//        }
+//
+//        System.out.println(getUserById(2));
 
 
         System.out.println("END PROGRAM");
@@ -31,7 +33,6 @@ public class CoraCardManager {
             String queryString = "FROM User";
             Query query = session.createQuery(queryString);
             List<User> userList = (List<User>) query.list();
-            System.out.println(userList);
             return userList;
         } catch (Exception e) {
             System.out.println(e);
@@ -43,11 +44,10 @@ public class CoraCardManager {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            String queryString = "FROM User WHERE id = :id";
-            Query query = session.createQuery(queryString);
-            query.setParameter("id", id);
-            User user = (User) query.list();
-            return user;
+            Criteria userCriteria = session.createCriteria(User.class);
+            userCriteria.add(Restrictions.eq("userId", id));
+            List<User> users = (List<User>) userCriteria.list();
+            return users.get(0);
         } catch (Exception e) {
             System.out.println(e);
         }

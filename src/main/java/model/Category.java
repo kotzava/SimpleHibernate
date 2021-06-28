@@ -10,7 +10,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "categoryId")
-    private int categoryId;
+    private Long categoryId;
     @Column(columnDefinition = "NVARCHAR(100)")
     private String name;
 

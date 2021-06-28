@@ -13,7 +13,7 @@ import java.util.Set;
 public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int statusId;
+    private Long statusId;
     @Column(columnDefinition = "VARCHAR(50)")
     private String name;
     @OneToMany(mappedBy = "status")

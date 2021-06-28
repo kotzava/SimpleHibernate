@@ -11,7 +11,7 @@ import java.util.Set;
 public class Social {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int socialId;
+    private Long socialId;
     @Column(columnDefinition = "VARCHAR(500)")
     private String name;
     @Column(columnDefinition = "VARCHAR(500)")

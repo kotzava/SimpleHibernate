@@ -10,7 +10,7 @@ public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int contactId;
+    private Long contactId;
 
     @Column(columnDefinition = "NVARCHAR(100)")
     private String name;
